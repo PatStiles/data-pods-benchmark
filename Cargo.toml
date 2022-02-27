@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "ledger",
+    "utils",
+    "data-pod",
+    "datastore",
+    "data-pod-proxy",
+    "client-bindings",
+    "secure-channel"
+]
+
+[profile.dev]
+debug = true
+opt-level = 0
+
+[profile.release]
+debug = true
+opt-level = 'z'
+lto = true

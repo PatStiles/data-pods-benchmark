@@ -1,0 +1,29 @@
+[package]
+name = "data-pod-proxy"
+version = "0.1.0"
+authors = ["kai mast <kaimast@cs.wisc.edu>"]
+edition = "2021"
+description = "Manages network connections and filesystem access for this data pod"
+
+[dependencies]
+log = { version="0.4" }
+tokio = { version="1", features=["net", "sync", "io-util", "time", "rt-multi-thread"] }
+tokio-util = { version="0.6", features=["codec"] }
+bincode = { version="1" }
+bytes = { version="1" }
+serde_bytes = { version="0.11" }
+num_cpus = { version="^1" }
+rand = { version="0.8" }
+pretty_env_logger = "0.4"
+serde = { version="^1", features = ["derive"] }
+futures-util = { version = "0.3", features = ["async-await"] }
+futures = { version = "0.3", features = ["async-await"] }
+clap = { version = "3", default-features = false, features = ["std", "cargo", "suggestions", "color"]}
+data-pods-utils = { path = "../utils" }
+ctrlc = { version="^3", features=["termination"] }
+data-pods-store = { path = "../datastore" }
+cpuprofiler = { version="0.0", optional=true }
+
+[features]
+default = []
+enable-profiling = ["cpuprofiler"]

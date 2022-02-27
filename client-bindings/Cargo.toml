@@ -1,0 +1,30 @@
+[package]
+name = "data-pods-client-bindings"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "data_pods"
+crate-type = ["cdylib"]
+
+[dependencies]
+data-pods-store = { path="../datastore" }
+data-pods-utils = { path="../utils" }
+bincode = "1"
+parking_lot = "0.12"
+cfg-if = "1"
+tokio = { version="1", features=["net", "sync", "io-util", "time", "rt-multi-thread"] }
+tokio-util = { version="0.6", features=["codec"] }
+futures-util = { version = "0.3", features = ["async-await"] }
+futures = { version = "0.3", features = ["async-await"] }
+secure-channel = { path="../secure-channel", features=["use-tokio"], optional=true }
+cowlang = { git="https://github.com/kaimast/cowlang.git", features=["python-bindings"], default-features=false, branch="main" }
+blockchain-simulator = { git="https://github.com/kaimast/blockchain-simulator.git", branch="main" }
+pyo3 = { version="0.15", features=["extension-module"] }
+chrono = { version="0.4" }
+log = { version="0.4" }
+pretty_env_logger = "0.4"
+
+[features]
+default = ["use-tls"]
+use-tls = ["secure-channel"]

@@ -1,0 +1,16 @@
+[package]
+name = "data-pods-ledger"
+version = "0.1.0"
+authors = ["kai mast <kaimast@cs.wisc.edu>"]
+edition = "2021"
+description = "The blockchain simulator to test and benchmark data pods with"
+
+[dependencies]
+data-pods-utils = { path = "../utils" }
+data-pods-store = { path = "../datastore" }
+pretty_env_logger = "0.4"
+blockchain-simulator = { git="https://github.com/kaimast/blockchain-simulator.git", features=["server"], branch="main" }
+tokio = { version="1", features=["net", "sync", "io-util", "time", "rt-multi-thread"] }
+num_cpus = { version="^1" }
+log = { version="0.4" }
+serde = { version="^1", features=["derive"] }
