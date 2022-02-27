@@ -30,7 +30,6 @@ sudo apt-get install -y libssl-dev
 
 #install 
 #install Data-pods
-cd data-pods
 
 just install-nosgx
 
