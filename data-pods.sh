@@ -19,7 +19,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -
 # add `~/bin` to the paths that your shell searches for executables
 # this line should be added to your shells initialization file,
 # e.g. `~/.bashrc` or `~/.zshrc`
-export PATH="$PATH:$HOME/bin"
+setenv PATH ${PATH}:${HOME}/bin
 
 #Install protobuf
 sudo apt-get install autoconf automake libtool curl make g++ unzip
